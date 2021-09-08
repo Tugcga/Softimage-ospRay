@@ -99,7 +99,7 @@ public:
 	//this method called when we change render settings
 	virtual XSI::CStatus update_scene_render();
 
-	//after these mwthods Softimage unlock the scene
+	//after these methods Softimage unlock the scene
 
 	//step 4: actual command to render
 	virtual void render();
