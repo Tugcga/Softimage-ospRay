@@ -2,3 +2,6 @@
 bin
 /src/Debug/
 /src/bin/
+/src/*.opendb
+/src/*.db
+/src/*.user
