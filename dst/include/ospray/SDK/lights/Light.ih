@@ -1,0 +1,68 @@
+// Copyright 2009-2021 Intel Corporation
+// SPDX-License-Identifier: Apache-2.0
+
+#pragma once
+
+#include "common/DifferentialGeometry.ih"
+
+struct Light;
+
+struct Light_SampleRes
+{
+  vec3f weight; //!< radiance that arrives at the given point divided by pdf
+  vec3f dir; //!< direction towards the light source, normalized
+  float dist; //!< largest valid t_far value for a shadow ray, including epsilon
+              //!< to avoid self-intersection
+  float pdf; //!< probability density that this sample was taken
+};
+
+//! compute the weighted radiance at a point caused by a sample on the light
+//! source
+// by convention, giving (0, 0) as "random" numbers should sample the "center"
+// of the light source (used by the raytracing renderers such as the SciVis
+// renderer)
+typedef Light_SampleRes (*Light_SampleFunc)(const uniform Light *uniform,
+    const DifferentialGeometry &, // point (&normal) to generate the sample
+    const vec2f &s, // random numbers to generate the sample
+    const float time = 0.5f); // generate the sample at time (motion blur)
+
+struct Light_EvalRes
+{
+  vec3f radiance; //!< radiance that arrives at the given point (not weighted by
+                  //!< pdf)
+  float pdf; //!< probability density that the direction would have been sampled
+};
+
+//! compute the radiance and pdf caused by the light source (pointed to by the
+//! given direction up until maxDist)
+typedef Light_EvalRes (*Light_EvalFunc)(const uniform Light *uniform,
+    const DifferentialGeometry &, //! point to evaluate illumination for >*/
+    const vec3f &dir, //! direction towards the light source, normalized >*/
+    const float minDist, //! minimum distance to look for light contribution >*/
+    const float
+        maxDist); //! maximum distance to look for light contribution >*/
+
+struct Light
+{
+  Light_SampleFunc sample;
+  Light_EvalFunc eval;
+  bool isVisible; // either directly in camera, or via a straight path (i.e.
+                  // through ThinGlass)
+  float selectionPDF; // the PDF of selecting the light from the renderers light
+                      // list
+};
+typedef Light *uniform LightPtr;
+typedef LightPtr *uniform LightArray;
+
+Light_EvalRes Light_eval(const uniform Light *uniform,
+    const DifferentialGeometry &,
+    const vec3f &,
+    const float,
+    const float);
+
+inline void Light_Constructor(uniform Light *uniform self)
+{
+  self->eval = Light_eval;
+  self->isVisible = true;
+  self->selectionPDF = 0.f;
+}

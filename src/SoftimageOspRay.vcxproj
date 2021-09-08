@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1EF00793-DB62-4BEF-A623-F94A68C83A3F}</ProjectGuid>
+    <ProjectName>SoftimageOspRay</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(XSISDK_ROOT)\mkfiles\Release-x64.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(XSISDK_ROOT)\mkfiles\Debug-x64.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\bin\nt-x86-64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\bin\nt-x86-64\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\bin\nt-x86-64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\bin\nt-x86-64\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>SoftimageOspRay</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <OutputFile>.\bin\nt-x86-64\ospRay.dll</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>..\dst\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <OutputFile>..\bin\nt-x86-64\SoftimageOspRay.dll</OutputFile>
+      <AdditionalDependencies>..\dst\libs\ospray_testing.lib;..\dst\libs\ospray.lib;..\dst\libs\ospray_imgui.lib;..\dst\libs\ospray_module_denoiser.lib;..\dst\libs\ospray_module_ispc.lib;..\dst\libs\rkcommon.lib;..\dst\libs\tbbproxy.lib;..\dst\libs\tbb.lib;..\dst\libs\tbbmalloc.lib;..\dst\libs\tbbmalloc_proxy.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="render_osp\exporters_osp\camera.cpp" />
+    <ClCompile Include="render_osp\exporters_osp\hair.cpp" />
+    <ClCompile Include="render_osp\exporters_osp\light.cpp" />
+    <ClCompile Include="render_osp\exporters_osp\material.cpp" />
+    <ClCompile Include="render_osp\exporters_osp\pointcloud.cpp" />
+    <ClCompile Include="render_osp\exporters_osp\polygonmesh.cpp" />
+    <ClCompile Include="render_osp\exporters_osp\renderer.cpp" />
+    <ClCompile Include="render_osp\exporters_osp\transform.cpp" />
+    <ClCompile Include="render_osp\ui_osp.cpp" />
+    <ClCompile Include="SoftimageOspRay.cpp" />
+    <ClCompile Include="render_base\render_engine_base.cpp" />
+    <ClCompile Include="render_osp\render_engine_osp.cpp" />
+    <ClCompile Include="si_callbacks\si_callbacks.cpp" />
+    <ClCompile Include="utilities\arrays.cpp" />
+    <ClCompile Include="utilities\export_common.cpp" />
+    <ClCompile Include="utilities\logs.cpp" />
+    <ClCompile Include="utilities\miniz.c" />
+    <ClCompile Include="utilities\write_image.cpp" />
+    <ClCompile Include="version.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="F:\Source\stb-master\stb_image_write.h" />
+    <ClInclude Include="render_base\render_engine_base.h" />
+    <ClInclude Include="render_base\render_tile.h" />
+    <ClInclude Include="render_base\render_visual_buffer.h" />
+    <ClInclude Include="render_osp\exporters_osp\exporter_includes.h" />
+    <ClInclude Include="render_osp\exporters_osp\material.h" />
+    <ClInclude Include="render_osp\includes_osp.h" />
+    <ClInclude Include="render_osp\render_engine_osp.h" />
+    <ClInclude Include="render_osp\types.h" />
+    <ClInclude Include="si_callbacks\si_callbacks.h" />
+    <ClInclude Include="si_callbacks\si_locker.h" />
+    <ClInclude Include="utilities\arrays.h" />
+    <ClInclude Include="utilities\export_common.h" />
+    <ClInclude Include="utilities\logs.h" />
+    <ClInclude Include="utilities\miniz.h" />
+    <ClInclude Include="utilities\tinyexr.h" />
+    <ClInclude Include="utilities\write_image.h" />
+    <ClInclude Include="version.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="version.cpp" />
+    <ClCompile Include="SoftimageOspRay.cpp" />
+    <ClCompile Include="utilities\logs.cpp">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="render_base\render_engine_base.cpp">
+      <Filter>render_base</Filter>
+    </ClCompile>
+    <ClCompile Include="render_osp\render_engine_osp.cpp">
+      <Filter>render_osp</Filter>
+    </ClCompile>
+    <ClCompile Include="si_callbacks\si_callbacks.cpp">
+      <Filter>si_callbacks</Filter>
+    </ClCompile>
+    <ClCompile Include="render_osp\exporters_osp\camera.cpp">
+      <Filter>render_osp\exporters</Filter>
+    </ClCompile>
+    <ClCompile Include="render_osp\exporters_osp\polygonmesh.cpp">
+      <Filter>render_osp\exporters</Filter>
+    </ClCompile>
+    <ClCompile Include="render_osp\exporters_osp\transform.cpp">
+      <Filter>render_osp\exporters</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\export_common.cpp">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="render_osp\exporters_osp\light.cpp">
+      <Filter>render_osp\exporters</Filter>
+    </ClCompile>
+    <ClCompile Include="render_osp\exporters_osp\renderer.cpp">
+      <Filter>render_osp\exporters</Filter>
+    </ClCompile>
+    <ClCompile Include="render_osp\ui_osp.cpp">
+      <Filter>render_osp</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\arrays.cpp">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\write_image.cpp">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="render_osp\exporters_osp\pointcloud.cpp">
+      <Filter>render_osp\exporters</Filter>
+    </ClCompile>
+    <ClCompile Include="render_osp\exporters_osp\hair.cpp">
+      <Filter>render_osp\exporters</Filter>
+    </ClCompile>
+    <ClCompile Include="render_osp\exporters_osp\material.cpp">
+      <Filter>render_osp\exporters</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\miniz.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="version.h" />
+    <ClInclude Include="utilities\logs.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="render_base\render_engine_base.h">
+      <Filter>render_base</Filter>
+    </ClInclude>
+    <ClInclude Include="render_osp\render_engine_osp.h">
+      <Filter>render_osp</Filter>
+    </ClInclude>
+    <ClInclude Include="render_base\render_tile.h">
+      <Filter>render_base</Filter>
+    </ClInclude>
+    <ClInclude Include="render_base\render_visual_buffer.h">
+      <Filter>render_base</Filter>
+    </ClInclude>
+    <ClInclude Include="si_callbacks\si_callbacks.h">
+      <Filter>si_callbacks</Filter>
+    </ClInclude>
+    <ClInclude Include="si_callbacks\si_locker.h">
+      <Filter>si_callbacks</Filter>
+    </ClInclude>
+    <ClInclude Include="render_osp\includes_osp.h">
+      <Filter>render_osp</Filter>
+    </ClInclude>
+    <ClInclude Include="render_osp\exporters_osp\exporter_includes.h">
+      <Filter>render_osp\exporters</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\export_common.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\arrays.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Source\stb-master\stb_image_write.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\write_image.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="render_osp\types.h">
+      <Filter>render_osp</Filter>
+    </ClInclude>
+    <ClInclude Include="render_osp\exporters_osp\material.h">
+      <Filter>render_osp\exporters</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\tinyexr.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\miniz.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="utilities">
+      <UniqueIdentifier>{4d7c5f49-7689-4a21-8652-674529ff0171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render_base">
+      <UniqueIdentifier>{782608ae-5bd9-46e2-b8a5-8e8311d1af8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render_osp">
+      <UniqueIdentifier>{2d49e95f-e6ef-404d-8b6d-8f563925151e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="si_callbacks">
+      <UniqueIdentifier>{f482a9a0-87de-4996-8ec2-c384b9bca14d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render_osp\exporters">
+      <UniqueIdentifier>{6cc6d3ab-d28f-4b28-9e7d-3ac05f7f71a4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

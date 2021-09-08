@@ -1,0 +1,23 @@
+// Copyright 2009-2020 Intel Corporation
+// SPDX-License-Identifier: Apache-2.0
+
+#pragma once
+
+// ospray stuff
+#include "../geometry/GeometricModel.ih"
+#include "../volume/VolumetricModel.ih"
+#include "Ray.ih"
+
+struct Group
+{
+  void *cppEquivalent;
+
+  GeometricModel **geometricModels;
+  int32 numGeometricModels;
+
+  VolumetricModel **volumetricModels;
+  int32 numVolumetricModels;
+
+  GeometricModel **clipModels;
+  int32 numClipModels;
+};
