@@ -117,7 +117,7 @@ void sync_pointcloud_primitives(const XSI::CTime &eval_time,
 		override_shape = shape_data.GetCount() > 0 ? shape_data[0].GetType() : XSI::siICEShapeType::siICEShapePoint;
 		is_override_shape = true;
 	}
-
+	
 	for (ULONG i = 0; i < shape_attr.GetElementCount(); i++)
 	{
 		XSI::MATH::CVector3f position = position_data[i];
@@ -127,8 +127,12 @@ void sync_pointcloud_primitives(const XSI::CTime &eval_time,
 		if (shape_type == XSI::siICEShapePoint)
 		{
 			//simply add position and radius to the output array
-			volume_positions.push_back(vec3f{ (float)position.GetX(), (float)position.GetY() , (float)position.GetZ() });
-			volume_radius.push_back(size_data[i]);
+			float size = size_data[i];
+			if (size > 0.0001f)  // ignore points with 0 size, as non-valid points
+			{
+				volume_positions.push_back(vec3f{ (float)position.GetX(), (float)position.GetY() , (float)position.GetZ() });
+				volume_radius.push_back(size);
+			}
 		}
 		else if(shape_type == XSI::siICEShapeBox)
 		{
