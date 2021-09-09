@@ -6,7 +6,7 @@ This is very basic integration of the [ospRay](https://github.com/ospray/OSPRay)
 
 ### Polygon mesh objects
 
-<img src="imgs/render_polygonmesh.png" alt="drawing" width="400"/>
+<img src="imgs/render_polygonmesh.png" width="400"/>
 
 If mesh contains uvs, then the renderer use only the first one. If mesh contains vertex colors, then the renderer also use only the first one. From geometry property the renderer use the following parameters
 
@@ -14,7 +14,7 @@ If mesh contains uvs, then the renderer use only the first one. If mesh contains
 
 ### Strands
 
-<img src="imgs/render_strands.png" alt="drawing" width="400"/>
+<img src="imgs/render_strands.png" width="400"/>
 
 If pointcloud has non-empty ```StrandPosition``` attribute, then the renderer interpret this pointcloud as only strands object. It renders each strand as curve primitive. The following ICE-attributes are used: ```Color``` and ```Size```.
 
@@ -24,25 +24,31 @@ If pointcloud object does not contains strands, then the renderer try to interpe
 
 ##### Spheres
 
-<img src="imgs/render_spheres.png" alt="drawing" width="400"/>
+<img src="imgs/render_spheres.png" width="400"/>
 
 Spheres primitive use ```Size``` and ```Color``` attributes for the radius and color respectively.
 
 ##### Boxes
 
-<img src="imgs/render_boxes.png" alt="drawing" width="400"/>
+<img src="imgs/render_boxes.png" width="400"/>
 
 Boxes primitive use ```Size``` and ```Color``` attributes for the box size and color respectively.
 
 ##### Particles Volume
 
-<img src="imgs/render_volume.png" alt="drawing" width="400"/>
+<img src="imgs/render_volume.png" width="400"/>
 
 This primitive renders as an cloud of volume particles. Only ```Size``` attribute is affected. The color and density of volume can be defined with the help of ```OSP Build Transfer Function``` ICE-node. Also there is node ```OSP Isosurface``` which allows to convert the particle volumes into isosurface (something similar to metaballs).
 
+### Hairs
+
+<img src="imgs/render_hair.png" width="400"/>
+
+The renderer recognize default Softimage hair objects and render it as curves primitive.
+
 ### Light sources
 
-<img src="imgs/render_lights.png" alt="drawing" width="400"/>
+<img src="imgs/render_lights.png" width="400"/>
 
 The renderer understand all standard types of Softimage lights: point, spot and infinite. For these types of light the renderer use the following parameters
 
