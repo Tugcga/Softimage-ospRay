@@ -1,6 +1,6 @@
 ## What is it
 
-This is very basic integration of the [ospRay](https://github.com/ospray/OSPRay) render engine into Softimage. The main goal of the project not only create integration of some third-party renderer into Softimage, but also to develop some universal template, which can be used for integrations of any other external renderer.
+This is very basic integration of the [ospRay](https://github.com/ospray/OSPRay) render engine into Softimage. Compiled addon can be downloaded [here](https://ssoftadd.github.io/ospRayPage.html). The main goal of the project not only to create integration of some third-party renderer into Softimage, but also to develop a universal template, which can be used for integrations of any other external renderer.
 
 ## What features are supported from Softimage
 
@@ -57,6 +57,8 @@ The renderer understand all standard types of Softimage lights: point, spot and 
 If the light has active ```Area Light``` then it interpret as rectangular area light. The rendere use the following area light parameters
 
 ![Are light properties](imgs/props_area_light.png)
+
+The color of the scene ambient light also considered as a light source.
 
 ### HDR environment lights
 
